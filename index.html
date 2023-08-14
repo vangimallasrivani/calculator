@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Using JS</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #fNumRow,
+        #sNumRow,
+        #btns,
+        #resBlock {
+            margin: 1rem 0 1rem;
+        }
+
+        #container {
+            background-color: grey;
+            border: 1px solid black;
+            padding: 1rem;
+        }
+
+        #btns,
+        #resBlock,
+        #clearbtn {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        span {
+            border: 1px solid black;
+        }
+
+        button,
+        span {
+            padding: 0.25rem 1rem;
+        }
+
+        #fNumValue,
+        #sNumValue {
+            text-align: center;
+        }
+
+        #add,#sub,#mul,#div,#mod{
+            color: white;
+            text-shadow: 2px 1px black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div id="container">
+        <div id="fNumRow">
+            <label for="fNum">Enter the first number : </label>
+            <input id="fNum" type="number" value="">
+        </div>
+        <div id="sNumRow">
+            <label for="sNum">Enter the second number : </label>
+            <input id="sNum" type="number" value="">
+        </div>
+        <div id="btns">
+            <button id="add">+</button>
+            <button id="sub">-</button>
+            <button id="mul">*</button>
+            <button id="div">/</button>
+            <button id="mod">%</button>
+        </div>
+        <div id="resBlock">
+            <input id="fNumValue" type="number" >
+            <span id="op">o</span>
+            <input id="sNumValue" type="number" readonly>
+            <span>=</span>
+            <input id="res" type="number" readonly>
+        </div>
+        <div id="clearbtn">
+            <button id="clear">Clear</button>
+        </div>
+    </div>
+
+    <script>
+        let fNum = document.getElementById('fNum')
+        let sNum = document.getElementById('sNum')
+        let add = document.getElementById('add')
+        let sub = document.getElementById('sub')
+        let mul = document.getElementById('mul')
+        let div = document.getElementById('div')
+        let mod = document.getElementById('mod')
+        let op = document.getElementById('op')
+        let fNumValue = document.getElementById('fNumValue')
+        let sNumValue = document.getElementById('sNumValue')
+        let res = document.getElementById('res')
+        let clear = document.getElementById('clear')
+        add.style.backgroundColor = 'red'
+        sub.style.backgroundColor = 'blue'
+        mul.style.backgroundColor = 'green'
+        div.style.backgroundColor = 'yellow'
+        mod.style.backgroundColor = 'pink'
+        add.addEventListener('click', () => {
+            if (fNum.value === "" || sNum.value === "") {
+                alert("Please enter the values")
+            } else {
+                op.innerText = add.innerText
+                fNumValue.value = fNum.value
+                sNumValue.value = sNum.value
+                res.value = parseInt(fNum.value) + parseInt(sNum.value)
+            }
+        })
+        sub.addEventListener('click', () => {
+            if (fNum.value === "" || sNum.value === "") {
+                alert("Please enter the values")
+            } else {
+                op.innerText = sub.innerText
+                fNumValue.value = fNum.value
+                sNumValue.value = sNum.value
+                res.value = parseInt(fNum.value) - parseInt(sNum.value)
+            }
+        })
+        mul.addEventListener('click', () => {
+            if (fNum.value === "" || sNum.value === "") {
+                alert("Please enter the values")
+            } else {
+                op.innerText = mul.innerText
+                fNumValue.value = fNum.value
+                sNumValue.value = sNum.value
+                res.value = parseInt(fNum.value) * parseInt(sNum.value)
+            }
+        })
+        div.addEventListener('click', () => {
+            if (fNum.value === "" || sNum.value === "") {
+                alert("Please enter the values")
+            } else {
+                op.innerText = div.innerText
+                fNumValue.value = fNum.value
+                sNumValue.value = sNum.value
+                res.value = parseInt(fNum.value) / parseInt(sNum.value)
+            }
+        })
+        mod.addEventListener('click', () => {
+            if (fNum.value === "" || sNum.value === "") {
+                alert("Please enter the values")
+            } else {
+                op.innerText = mod.innerText
+                fNumValue.value = fNum.value
+                sNumValue.value = sNum.value
+                res.value = parseInt(fNum.value) % parseInt(sNum.value)
+            }
+        })
+        clear.addEventListener('click', () => {
+            fNum.value = ''
+            sNum.value = ''
+            fNumValue.value = ''
+            sNumValue.value = ''
+            res.value = ''
+        })
+
+    </script>
+</body>
+
+</html>
